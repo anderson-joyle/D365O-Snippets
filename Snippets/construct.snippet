@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<CodeSnippets  
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">  
+    <CodeSnippet Format="1.0.0">  
+        <Header>  
+            <Title>construct</Title>
+			<Author>Anderson Joyle</Author>  
+			<Description>Creates a construct method based on class name.</Description>
+			<HelpUrl>https://github.com/anderson-joyle/D365O-Snippets/Snippets</HelpUrl>
+			<Shortcut>construct</Shortcut>
+        </Header>  
+		<Declarations>  
+			<Literal Editable="true">  
+				<ID>class_name</ID>  
+				<ToolTip>Replace with the class name.</ToolTip>  
+				<Default>Object</Default>  
+			</Literal>
+		</Declarations>
+        <Snippet>  
+            <Code Language="x++" Kind="method decl">  
+                <![CDATA[public static $class_name$ construct()
+    {
+        $class_name$ obj = new $class_name$();
+
+        return obj;
+    }]]>  
+            </Code>  
+        </Snippet>  
+    </CodeSnippet>  
+</CodeSnippets>  

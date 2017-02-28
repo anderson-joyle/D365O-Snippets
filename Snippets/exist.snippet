@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<CodeSnippets  
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">  
+    <CodeSnippet Format="1.0.0">  
+        <Header>  
+            <Title>exist</Title>
+			<Author>Anderson Joyle</Author>  
+			<Description>Creates exist method based on table name.</Description>
+			<HelpUrl>https://github.com/anderson-joyle/D365O-Snippets/Snippets</HelpUrl>
+			<Shortcut>exist</Shortcut>
+        </Header>  
+		<Declarations>  
+			<Literal Editable="true">  
+				<ID>table_name</ID>  
+				<ToolTip>The class name.</ToolTip>  
+				<Default>Common</Default>  
+			</Literal>
+			<Literal Editable="true">  
+				<ID>field_name</ID>  
+				<ToolTip>Field name to used as id.</ToolTip>  
+				<Default>RecId</Default>  
+			</Literal>
+		</Declarations>
+        <Snippet>  
+            <Code Language="x++" Kind="method decl">  
+                <![CDATA[/// <summary>
+    /// Checks if a specific <c>$table_name$</c> table record exist
+    /// </summary>
+    public static boolean exist($field_name$ _$field_name$)
+    {
+        $table_name$ table;
+        boolean ret = false;
+
+        if ($field_name$)
+        {
+            select firstonly RecId from table
+                where table.$field_name$ == _$field_name$;
+
+            ret = table.RecId != 0;
+        }
+
+        return ret;
+    }
+]]>  
+            </Code>  
+        </Snippet>  
+    </CodeSnippet>  
+</CodeSnippets>  
