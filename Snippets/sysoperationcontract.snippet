@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>SysOperationContract class</Title>
+      <Description>Creates SysOperation framework contract class, implementing SysOperationValidatable interface.</Description>
+      <Author>Anderson Joyle</Author>
+      <HelpUrl>https://github.com/anderson-joyle/D365O-Snippets/Snippets</HelpUrl>
+      <Shortcut>contract</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+        <SnippetType>SurroundsWith</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>class_name</ID>
+          <ToolTip>The class name.</ToolTip>
+          <Default>ClassName</Default>
+        </Literal>
+        <Literal Editable="true">
+          <ID>identifier</ID>
+          <ToolTip>Identifier name used as argument type.</ToolTip>
+          <Default>RecId</Default>
+        </Literal>
+      <Literal Editable="true">
+          <ID>argument</ID>
+          <ToolTip>Argument name.</ToolTip>
+          <Default>recId</Default>
+        </Literal>
+</Declarations>
+      <Code Language="X++" Kind="file">
+        <![CDATA[[DataContractAttribute]
+public class $class_name$ implements SysOperationValidatable
+{
+    $identifier$ $argument$;
+    
+    [DataMemberAttribute]
+    public RefRecId parm$argument$($identifier$ _$argument$ = $argument$)
+    {
+        $argument$ = _$argument$;
+        return $argument$;
+    }
+    
+    public boolean validate()
+    {
+        boolean ret = true;
+
+        return ret;
+    }
+}
+]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
