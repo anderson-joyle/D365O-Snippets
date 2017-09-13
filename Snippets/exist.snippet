@@ -1,48 +1,57 @@
-<?xml version="1.0" encoding="utf-8"?>  
-<CodeSnippets  
-    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">  
-    <CodeSnippet Format="1.0.0">  
-        <Header>  
-            <Title>exist</Title>
-			<Author>Anderson Joyle</Author>  
-			<Description>Creates exist method based on table name.</Description>
-			<HelpUrl>https://github.com/anderson-joyle/D365O-Snippets/Snippets</HelpUrl>
-			<Shortcut>exist</Shortcut>
-        </Header>  
-		<Declarations>  
-			<Literal Editable="true">  
-				<ID>table_name</ID>  
-				<ToolTip>The class name.</ToolTip>  
-				<Default>Common</Default>  
-			</Literal>
-			<Literal Editable="true">  
-				<ID>field_name</ID>  
-				<ToolTip>Field name to used as id.</ToolTip>  
-				<Default>RecId</Default>  
-			</Literal>
-		</Declarations>
-        <Snippet>  
-            <Code Language="x++" Kind="method decl">  
-                <![CDATA[/// <summary>
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>exist</Title>
+      <Author>Anderson Joyle</Author>
+      <Description>Creates exist method based on table name.</Description>
+      <HelpUrl>https://github.com/anderson-joyle/D365O-Snippets/Snippets</HelpUrl>
+      <Shortcut>exist</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+        <SnippetType>SurroundsWith</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>table_name</ID>
+          <ToolTip>The table name.</ToolTip>
+          <Default>Common</Default>
+        </Literal>
+        <Literal Editable="true">
+          <ID>identifier</ID>
+          <ToolTip>Identifier name used as argument type.</ToolTip>
+          <Default>RecId</Default>
+        </Literal>
+      <Literal Editable="true">
+          <ID>argument</ID>
+          <ToolTip>Argument name.</ToolTip>
+          <Default>recId</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="x++" Kind="method decl">
+        <![CDATA[/// <summary>
     /// Checks if a specific <c>$table_name$</c> table record exist
     /// </summary>
-    public static boolean exist($field_name$ _$field_name$)
+    public static boolean exist($identifier$ _$argument$)
     {
         $table_name$ table;
         boolean ret = false;
 
-        if ($field_name$)
+        if ($argument$)
         {
             select firstonly RecId from table
-                where table.$field_name$ == _$field_name$;
+                where table.$identifier$ == _$argument$;
 
             ret = table.RecId != 0;
         }
 
         return ret;
     }
-]]>  
-            </Code>  
-        </Snippet>  
-    </CodeSnippet>  
-</CodeSnippets>  
+]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
