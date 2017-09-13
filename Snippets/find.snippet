@@ -8,6 +8,10 @@
       <Description>Creates find method based on table name.</Description>
       <HelpUrl>https://github.com/anderson-joyle/D365O-Snippets/Snippets</HelpUrl>
       <Shortcut>table_find</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+        <SnippetType>SurroundsWith</SnippetType>
+      </SnippetTypes>
     </Header>
     <Snippet>
       <Declarations>
@@ -24,7 +28,7 @@
       <Literal Editable="true">
           <ID>argument</ID>
           <ToolTip>Argument name.</ToolTip>
-          <Default>_recId</Default>
+          <Default>recId</Default>
         </Literal>
       </Declarations>
         <Code Language="X++" Kind="method decl">
