@@ -1,47 +1,56 @@
-<?xml version="1.0" encoding="utf-8"?>  
-<CodeSnippets  
-    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">  
-    <CodeSnippet Format="1.0.0">  
-        <Header>  
-            <Title>find</Title>
-			<Author>Anderson Joyle</Author>  
-			<Description>Creates find method based on table name.</Description>
-			<HelpUrl>https://github.com/anderson-joyle/D365O-Snippets/Snippets</HelpUrl>
-			<Shortcut>table_find_exist</Shortcut>
-        </Header>  
-		<Declarations>  
-			<Literal Editable="true">  
-				<ID>table_name</ID>  
-				<ToolTip>The table name.</ToolTip>  
-				<Default>Common</Default>  
-			</Literal>
-			<Literal Editable="true">  
-				<ID>field_name</ID>  
-				<ToolTip>Field name to used as id.</ToolTip>  
-				<Default>RecId</Default>  
-			</Literal>
-		</Declarations>
-        <Snippet>  
-            <Code Language="x++" Kind="method decl">  
-                <![CDATA[/// <summary>
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>find</Title>
+      <Author>Anderson Joyle</Author>
+      <Description>Creates find method based on table name.</Description>
+      <HelpUrl>https://github.com/anderson-joyle/D365O-Snippets/Snippets</HelpUrl>
+      <Shortcut>table_find</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+        <SnippetType>SurroundsWith</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>table_name</ID>
+          <ToolTip>The table name.</ToolTip>
+          <Default>Common</Default>
+        </Literal>
+        <Literal Editable="true">
+          <ID>identifier</ID>
+          <ToolTip>Identifier name used as argument type.</ToolTip>
+          <Default>RecId</Default>
+        </Literal>
+      <Literal Editable="true">
+          <ID>argument</ID>
+          <ToolTip>Argument name.</ToolTip>
+          <Default>recId</Default>
+        </Literal>
+      </Declarations>
+        <Code Language="X++" Kind="method decl">
+          <![CDATA[/// <summary>
     /// Finds a specific <c>$table_name$</c> table record
     /// </summary>
-    public static $table_name$ find($field_name$ _$field_name$, boolean _forupdate = false)
+    public static $table_name$ find($identifier$ _$argument$, boolean _forupdate = false)
     {
         $table_name$ table;
 
-        if (_$field_name$)
+        if (_$argument$)
         {
             table.selectForUpdate(_forupdate);
 
             select firstonly table
-                where table.$field_name$ == _$field_name$;
+                where table.$identifier$ == _$argument$;
         }
 
         return table;
     }
-]]>  
-            </Code>  
-        </Snippet>  
-    </CodeSnippet>  
-</CodeSnippets>  
+]]>
+        </Code>
+      </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

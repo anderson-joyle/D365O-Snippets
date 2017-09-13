@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>SysOperationService class</Title>
+      <Description>Creates SysOperation framework service class.</Description>
+      <Author>Anderson Joyle</Author>
+      <HelpUrl>https://github.com/anderson-joyle/D365O-Snippets/Snippets</HelpUrl>
+      <Shortcut>service</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+        <SnippetType>SurroundsWith</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>class_service_name</ID>
+          <ToolTip>Service class name.</ToolTip>
+          <Default>ServiceClassName</Default>
+        </Literal>
+        <Literal Editable="true">
+          <ID>class_contract_name</ID>
+          <ToolTip>Contract class name.</ToolTip>
+          <Default>ContractClassName</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="X++" Kind="file">
+        <![CDATA[class $class_service_name$
+{
+    protected $class_contract_name$ contract;
+
+    public $class_contract_name$ parmContract($class_contract_name$ _contract = contract)
+    {
+        contract = _contract;
+        return contract;
+    }
+    
+    public void startProcess($class_contract_name$ _contract)
+    {
+        this.parmContract(_contract);
+
+        // Todo Your awesome X++ code goes here!
+    }
+}
+]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

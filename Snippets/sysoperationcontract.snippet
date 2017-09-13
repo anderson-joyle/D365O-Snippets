@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CodeSnippets
-    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
   <CodeSnippet Format="1.0.0">
     <Header>
-      <Title>exist</Title>
+      <Title>SysOperationContract class</Title>
+      <Description>Creates SysOperation framework contract class, implementing SysOperationValidatable interface.</Description>
       <Author>Anderson Joyle</Author>
-      <Description>Creates exist method based on table name.</Description>
       <HelpUrl>https://github.com/anderson-joyle/D365O-Snippets/Snippets</HelpUrl>
-      <Shortcut>exist</Shortcut>
+      <Shortcut>contract</Shortcut>
       <SnippetTypes>
         <SnippetType>Expansion</SnippetType>
         <SnippetType>SurroundsWith</SnippetType>
@@ -16,9 +15,9 @@
     <Snippet>
       <Declarations>
         <Literal Editable="true">
-          <ID>table_name</ID>
-          <ToolTip>The table name.</ToolTip>
-          <Default>Common</Default>
+          <ID>class_name</ID>
+          <ToolTip>The class name.</ToolTip>
+          <Default>ClassName</Default>
         </Literal>
         <Literal Editable="true">
           <ID>identifier</ID>
@@ -30,26 +29,27 @@
           <ToolTip>Argument name.</ToolTip>
           <Default>recId</Default>
         </Literal>
-      </Declarations>
-      <Code Language="x++" Kind="method decl">
-        <![CDATA[/// <summary>
-    /// Checks if a specific <c>$table_name$</c> table record exist
-    /// </summary>
-    public static boolean exist($identifier$ _$argument$)
+</Declarations>
+      <Code Language="X++" Kind="file">
+        <![CDATA[[DataContractAttribute]
+public class $class_name$ implements SysOperationValidatable
+{
+    $identifier$ $argument$;
+    
+    [DataMemberAttribute]
+    public RefRecId parm$argument$($identifier$ _$argument$ = $argument$)
     {
-        $table_name$ table;
-        boolean ret = false;
-
-        if ($argument$)
-        {
-            select firstonly RecId from table
-                where table.$identifier$ == _$argument$;
-
-            ret = table.RecId != 0;
-        }
+        $argument$ = _$argument$;
+        return $argument$;
+    }
+    
+    public boolean validate()
+    {
+        boolean ret = true;
 
         return ret;
     }
+}
 ]]>
       </Code>
     </Snippet>

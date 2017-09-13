@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>SysOperationController class</Title>
+      <Description>Creates SysOperation framework controller class.</Description>
+      <Author>Anderson Joyle</Author>
+      <HelpUrl>https://github.com/anderson-joyle/D365O-Snippets/Snippets</HelpUrl>
+      <Shortcut>controller</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+        <SnippetType>SurroundsWith</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <ID>classname</ID>
+          <ToolTip>Class name.</ToolTip>
+          <Default>ClassName</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="X++" Kind="file">
+        <![CDATA[class $classname$ extends SysOperationServiceController
+{
+    public static $classname$ createController(Args _args)
+    {
+        $classname$ controller;
+        IdentifierName            className, methodName;
+        SysOperationExecutionMode mode;
+        
+        if (!_args)
+        {
+            throw error(strfmt("@Budget:IncorrectFunctionUsage", funcname()));
+        }
+
+        [className, methodName, mode] = SysOperationServiceController::parseServiceInfo(_args);
+        controller = new $classname$(className, methodName, mode);
+        controller.parmLoadFromSysLastValue(true);
+        controller.parmArgs(_args);
+
+        return controller;
+    }
+
+    protected void afterOperation(SysOperationExecutionMode _executionMode, AifAsyncResult _asyncResult)
+    {
+        super(_executionMode, _asyncResult);
+
+        if (_asyncResult && !_asyncResult.parmHasException() && _asyncResult.parmIsCompleted())
+        {
+            info("The process has been completed.");
+        }
+    }
+
+    // Todo For convenience
+    protected FormName templateForm()
+    {
+        return formStr(SysOperationTemplateForm);
+    }
+
+    // Todo For convenience
+    protected boolean canRunInNewSession()
+    {
+        return false;
+    }
+
+    // Todo For convenience
+    public boolean canGoBatch()
+    {
+        return true;
+    }
+
+    // Todo For convenience
+    public static void main(Args _args)
+    {
+        $classname$ controller;
+
+        controller = $classname$::createController(_args);
+        controller.startOperation();
+    }
+
+    // Todo For convenience
+    public SysOperationValidatable dataContract()
+    {
+        return this.getDataContractObject();
+    }
+
+}
+]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
