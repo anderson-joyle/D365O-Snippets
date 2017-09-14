@@ -1,4 +1,7 @@
-# D365O Snippets
+![D365O Add-in](https://github.com/anderson-joyle/D365O-Snippets/blob/master/D365O_snippets_logo.png)
+
+[![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/joyle)
+
 Dynamics 365 for Operation (AX7) snippets. Pre-made code to accelerate D365O developments and avoid boring codification.
 Kindly refer to the following links to better understanding:
 
