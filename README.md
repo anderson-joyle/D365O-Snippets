@@ -1,5 +1,6 @@
 ![D365O Add-in](https://github.com/anderson-joyle/D365O-Snippets/blob/master/D365O_snippets_logo.png)
 
+[![Donate Crypto](https://img.shields.io/badge/Donate-Crypto-805AFF.svg)](https://github.com/anderson-joyle/D365O-Addins#donate)
 [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/joyle)
 
 Dynamics 365 for Operation (AX7) snippets. Pre-made code to accelerate D365O developments and avoid boring codification.
@@ -17,3 +18,10 @@ Kindly refer to the following links to better understanding:
 * [SysOperation controller method](https://github.com/anderson-joyle/D365O-Snippets/blob/master/Snippets/sysoperationcontroller.snippet): Creates SysOperation framework controller class.
 * [SysOperation contract method](https://github.com/anderson-joyle/D365O-Snippets/blob/master/Snippets/sysoperationcontract.snippet): Creates SysOperation framework contract class.
 * [SysOperation service method](https://github.com/anderson-joyle/D365O-Snippets/blob/master/Snippets/sysoperationservice.snippet): Creates SysOperation framework service class.
+
+## Donate
+If this project helped you in any way and you feel like supporting me:
+
+###### BTC: 1G3rHge15Kt1G8Amh2ZfNeH5pp1L3CFGmm
+###### ETH: 0x9c8A747C13536b1de9Ce932E0f79FA4eB6E309b6
+###### LTC: LMdh66L6tv19YLxbVgP1t47eocitSHhw5S
